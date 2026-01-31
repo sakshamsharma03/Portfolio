@@ -26,6 +26,25 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const targetId = href.replace("#", "");
+        const element = document.getElementById(targetId);
+        if (element) {
+            const offset = 80; // Height of the fixed navbar
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = element.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+        }
+        setIsMobileMenuOpen(false);
+    };
+
     return (
         <nav
             className={cn(
@@ -50,6 +69,7 @@ export function Navbar() {
                         <Link
                             key={link.name}
                             href={link.href}
+                            onClick={(e) => handleNavClick(e, link.href)}
                             className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                         >
                             {link.name}
@@ -67,7 +87,7 @@ export function Navbar() {
                         </Link>
                     </div>
                     <Button asChild size="sm">
-                        <Link href="#contact">Hire Me</Link>
+                        <Link href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>Hire Me</Link>
                     </Button>
                 </div>
 
@@ -95,7 +115,7 @@ export function Navbar() {
                                     key={link.name}
                                     href={link.href}
                                     className="text-lg font-medium text-foreground py-2 border-b border-border/50"
-                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    onClick={(e) => handleNavClick(e, link.href)}
                                 >
                                     {link.name}
                                 </Link>
@@ -109,7 +129,7 @@ export function Navbar() {
                                 </Link>
                             </div>
                             <Button asChild className="mt-4 w-full">
-                                <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Hire Me</Link>
+                                <Link href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>Hire Me</Link>
                             </Button>
                         </div>
                     </motion.div>
