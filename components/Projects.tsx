@@ -17,7 +17,7 @@ const projects = [
             "Scaled to support 50+ concurrent organization tenants.",
             "Implemented role-based access control (RBAC) specifically for field agents."
         ],
-        link: "#", // Placeholder
+        link: "https://rentablez.com/",
         github: "#"
     },
     {
@@ -30,7 +30,7 @@ const projects = [
             "Seamlessly integrated HitPay for secure local transactions.",
             "Achieved 99.9% uptime during peak booking hours."
         ],
-        link: "#",
+        link: "https://www.kridas.com/",
         github: "#"
     },
     {
@@ -56,7 +56,7 @@ const projects = [
             "Architected a modular backend for easy future extensibility.",
             "Ensured high availability and system reliability in production."
         ],
-        link: "#",
+        link: "https://isnee.in/",
         github: "#"
     }
 ];
