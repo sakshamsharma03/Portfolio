@@ -12,7 +12,7 @@ const projects = [
     {
         title: "Rentablez",
         subtitle: "SaaS Rental Platform",
-        description: "A comprehensive ERP system for rental businesses. I architected the entire Java Spring Boot backend to handle complex inventory management across multiple organizations and built the React Native mobile app for field agents.",
+        description: "A comprehensive ERP system for rental businesses. I built a high-performance React Native mobile app with offline-first capabilities for field agents, while architecting the scalable Java Spring Boot backend to handle complex inventory management across multiple organizations.",
         tags: ["React Native", "Java Spring Boot", "PostgreSQL", "Microservices", "Docker"],
         impact: [
             "Reduced inventory conflicts by 40% with real-time tracking.",
@@ -22,15 +22,15 @@ const projects = [
         link: "https://rentablez.com/",
         github: "#",
         images: [
-            "/rentablez/rentablez01.webp",
-            "/rentablez/rentablez02.webp",
-            "/rentablez/rentablez03.webp"
+            "https://drive.google.com/uc?export=view&id=1DmAJqZvSLWDy2GC3aRsIXlJE_TfSOB_K",
+            "https://drive.google.com/uc?export=view&id=1_XMksHIbkE9Zax7oV74ic1A9x8MllPiY",
+            "https://drive.google.com/uc?export=view&id=1F6Rs_DO7kgyrMJ8TmyUtBDKBk8lrQzpb"
         ]
     },
     {
         title: "Kridas",
         subtitle: "Sports Venue Booking (Singapore)",
-        description: "Migrated the legacy Node.js backend to a robust Java Spring Boot architecture while simultaneously rebuilding the mobile app for better performance. Integrated local payment gateways for seamless booking.",
+        description: "Migrated the legacy system to a robust architecture. On the frontend, I rebuilt the mobile app using React Native for a smooth, responsive user experience. On the backend, I implemented a Java Spring Boot architecture with local payment gateway integration for seamless bookings.",
         tags: ["React Native", "Java Spring Boot", "HitPay Integration", "Redis", "AWS RDS"],
         impact: [
             "Improved API response time by 60% after migration.",
@@ -40,16 +40,16 @@ const projects = [
         link: "https://www.kridas.com/",
         github: "#",
         images: [
-            "/kridas/kridas-feed.png",
-            "/kridas/kridas-events.png",
-            "/kridas/kridas-page.png",
-            "/kridas/kridas-profile.png"
+            "https://drive.google.com/uc?export=view&id=1y0QwEQAaybq8JTgJb3uwbxj2Q9AeU80w",
+            "https://drive.google.com/uc?export=view&id=1wArhvCYWtyk5YzSQ0TuXU8egMQnsym6H",
+            "https://drive.google.com/uc?export=view&id=1OykTSyZ3ijuh_cSvLvkwygwc2sunXvox",
+            "https://drive.google.com/uc?export=view&id=1x37aKtV_L2USyF0bXMwnOEjCf2YQvqQM",
         ]
     },
     {
         title: "Namma Kutira",
         subtitle: "Community / Property Management",
-        description: "A community management platform streamlining property workflows. Focused on delivering a seamless mobile-first user experience backed by complex, backend-driven logic for day-to-day operations.",
+        description: "A community management platform streamlining property workflows. I designed a mobile-first UI using React Native to ensure accessibility for non-technical staff, backed by complex backend logic for automated maintenance tracking and operational efficiency.",
         tags: ["React Native", "Java Spring Boot", "PostgreSQL", "Workflow Automation"],
         impact: [
             "Digitized core property operations, reducing manual paperwork by 70%.",
@@ -59,16 +59,19 @@ const projects = [
         link: "#",
         github: "#",
         images: [
-            "/nammakutira/nammakutira-Dash.png",
-            "/nammakutira/nammakutira-cart.png",
-            "/nammakutira/nammakutira-propdetails.png",
-            "/nammakutira/nammakutira-search.png"
+            "https://drive.google.com/uc?export=view&id=1yT_oQVJZ9QDcdV9Ajzyt7PZX-WeVAymY",
+
+            "https://drive.google.com/uc?export=view&id=13SH9haHj6luCroM66IgOJf7TAF-aNoTW",
+
+            "https://drive.google.com/uc?export=view&id=1KaEdhPzHe6wSTACfV0MW5-TMqWqq6qRt",
+
+            "https://drive.google.com/uc?export=view&id=1R3tXNyw38sGXU_pkKDxi42ORfXrp3px6"
         ]
     },
     {
         title: "iSNEE",
         subtitle: "Digital Platform",
-        description: "A digital ecosystem platform emphasizing clean UI and structural integrity. Built with a focus on long-term reliability and maintainability, serving as a production-grade system rather than a prototype.",
+        description: "A digital ecosystem platform where design meets engineering. I developed a pixel-perfect, highly interactive React Native interface, paired with a modular and reliable backend architecture to ensure long-term maintainability and system integrity in production.",
         tags: ["React Native", "Java", "System Design", "Scalable Architecture"],
         impact: [
             "Delivered a polished, crash-free mobile interface.",
@@ -78,10 +81,10 @@ const projects = [
         link: "https://isnee.in/",
         github: "#",
         images: [
-            "/isnee/isnee-dash.png",
-            "/isnee/isnee-events.png",
-            "/isnee/isnee-leaderboard.png",
-            "/isnee/isnee-members.png"
+            "https://drive.google.com/uc?export=view&id=1blhagXiOspNbzJ6zHqgiPozStg2z9aU6",
+            "https://drive.google.com/uc?export=view&id=1iVaBXEPcZLao41X55-j-adRrLS2maANl",
+            "https://drive.google.com/uc?export=view&id=1yXXG0CJqJW8Q30GPCopAwIPTPy7n88ua",
+            "https://drive.google.com/uc?export=view&id=13NneYkUN6WMOySnTApPZsbKFH7wTDdYP"
         ]
     }
 ];
