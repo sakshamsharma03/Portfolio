@@ -1,8 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "./ui/button";
 
 
@@ -18,7 +20,12 @@ const projects = [
             "Implemented role-based access control (RBAC) specifically for field agents."
         ],
         link: "https://rentablez.com/",
-        github: "#"
+        github: "#",
+        images: [
+            "/rentablez/rentablez01.webp",
+            "/rentablez/rentablez02.webp",
+            "/rentablez/rentablez03.webp"
+        ]
     },
     {
         title: "Kridas",
@@ -31,7 +38,13 @@ const projects = [
             "Achieved 99.9% uptime during peak booking hours."
         ],
         link: "https://www.kridas.com/",
-        github: "#"
+        github: "#",
+        images: [
+            "/kridas/kridas-feed.png",
+            "/kridas/kridas-events.png",
+            "/kridas/kridas-page.png",
+            "/kridas/kridas-profile.png"
+        ]
     },
     {
         title: "Namma Kutira",
@@ -44,7 +57,13 @@ const projects = [
             "Implemented robust backend workflows for maintenance tracking."
         ],
         link: "#",
-        github: "#"
+        github: "#",
+        images: [
+            "/nammakutira/nammakutira-Dash.png",
+            "/nammakutira/nammakutira-cart.png",
+            "/nammakutira/nammakutira-propdetails.png",
+            "/nammakutira/nammakutira-search.png"
+        ]
     },
     {
         title: "iSNEE",
@@ -57,9 +76,59 @@ const projects = [
             "Ensured high availability and system reliability in production."
         ],
         link: "https://isnee.in/",
-        github: "#"
+        github: "#",
+        images: [
+            "/isnee/isnee-dash.png",
+            "/isnee/isnee-events.png",
+            "/isnee/isnee-leaderboard.png",
+            "/isnee/isnee-members.png"
+        ]
     }
 ];
+
+function Carousel({ images }: { images: string[] }) {
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setIndex((prev) => (prev + 1) % images.length);
+        }, 3000); // Change image every 3 seconds
+        return () => clearInterval(timer);
+    }, [images.length]);
+
+    return (
+        <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl flex items-center justify-center bg-background/50">
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0"
+                >
+                    <Image
+                        src={images[index]}
+                        alt={`Screenshot ${index + 1}`}
+                        fill
+                        className="object-contain p-4"
+                    />
+                </motion.div>
+            </AnimatePresence>
+
+            {/* Dots Indicator */}
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+                {images.map((_, i) => (
+                    <div
+                        key={i}
+                        className={`w-2 h-2 rounded-full transition-colors ${i === index ? "bg-primary" : "bg-primary/20"
+                            }`}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+}
 
 export function Projects() {
     return (
@@ -137,23 +206,9 @@ export function Projects() {
                                 </div>
                             </div>
 
-                            {/* Visual Side (Abstract Representation or Placeholder for Screenshot) */}
-                            {/* Since I cannot generate real screenshots easily without running the apps, I will create a styled card representing the project structure */}
-                            <div className="hidden lg:flex lg:col-span-4 h-full min-h-[300px] rounded-2xl bg-card border border-border p-6 flex-col justify-between relative overflow-hidden">
-                                <div className="absolute top-0 right-0 p-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16" />
-                                <div className="relative z-10 flex flex-col gap-4">
-                                    {/* Mockup Elements */}
-                                    <div className="w-3/4 h-4 bg-secondary rounded animate-pulse" />
-                                    <div className="w-1/2 h-4 bg-secondary rounded animate-pulse delay-75" />
-                                    <div className="w-full h-32 bg-secondary/50 rounded-lg mt-4 border border-border/50" />
-                                </div>
-                                <div className="relative z-10 mt-auto">
-                                    <div className="font-mono text-xs text-muted-foreground">
-                            // Architecture<br />
-                                        Backend: Spring Boot<br />
-                                        Mobile: React Native
-                                    </div>
-                                </div>
+                            {/* Visual Side (Carousel) */}
+                            <div className="hidden lg:flex lg:col-span-4 h-full min-h-[400px] rounded-2xl bg-card border border-border p-2 overflow-hidden items-center justify-center relative group/carousel">
+                                <Carousel images={project.images} />
                             </div>
                         </motion.div>
                     ))}
