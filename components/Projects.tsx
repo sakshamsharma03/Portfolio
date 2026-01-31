@@ -34,14 +34,27 @@ const projects = [
         github: "#"
     },
     {
-        title: "EcoCash",
-        subtitle: "Mobile Wallet & Payments",
-        description: "A high-security fintech application for peer-to-peer transfers and bill payments. Focused heavily on encryption, transaction integrity, and compliance with financial regulations.",
-        tags: ["React Native", "Java", "Spring Security", "OAuth2", "MongoDB"],
+        title: "Namma Kutira",
+        subtitle: "Community / Property Management",
+        description: "A community management platform streamlining property workflows. Focused on delivering a seamless mobile-first user experience backed by complex, backend-driven logic for day-to-day operations.",
+        tags: ["React Native", "Java Spring Boot", "PostgreSQL", "Workflow Automation"],
         impact: [
-            "Secured ISO 27001 compliance standards for transaction handling.",
-            "Optimized app startup time to under 2 seconds.",
-            "Implemented fraud detection middleware."
+            "Digitized core property operations, reducing manual paperwork by 70%.",
+            "Designed a mobile-focused UX for non-technical staff.",
+            "Implemented robust backend workflows for maintenance tracking."
+        ],
+        link: "#",
+        github: "#"
+    },
+    {
+        title: "iSNEE",
+        subtitle: "Digital Platform",
+        description: "A digital ecosystem platform emphasizing clean UI and structural integrity. Built with a focus on long-term reliability and maintainability, serving as a production-grade system rather than a prototype.",
+        tags: ["React Native", "Java", "System Design", "Scalable Architecture"],
+        impact: [
+            "Delivered a polished, crash-free mobile interface.",
+            "Architected a modular backend for easy future extensibility.",
+            "Ensured high availability and system reliability in production."
         ],
         link: "#",
         github: "#"
