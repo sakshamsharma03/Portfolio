@@ -13,7 +13,7 @@ const projects = [
         title: "Rentablez",
         subtitle: "SaaS Rental Platform",
         description: "A comprehensive ERP system for rental businesses. I built a high-performance React Native mobile app with offline-first capabilities for field agents, while architecting the scalable Java Spring Boot backend to handle complex inventory management across multiple organizations.",
-        tags: ["React Native", "Java Spring Boot", "PostgreSQL", "Microservices", "Docker"],
+        tags: ["React Native", "NestJs", "PostgreSQL", "Prisma", "MongoDB"],
         impact: [
             "Reduced inventory conflicts by 40% with real-time tracking.",
             "Scaled to support 50+ concurrent organization tenants.",
@@ -31,7 +31,7 @@ const projects = [
         title: "Kridas",
         subtitle: "Sports Venue Booking (Singapore)",
         description: "Migrated the legacy system to a robust architecture. On the frontend, I rebuilt the mobile app using React Native for a smooth, responsive user experience. On the backend, I implemented a Java Spring Boot architecture with local payment gateway integration for seamless bookings.",
-        tags: ["React Native", "Java Spring Boot", "HitPay Integration", "Redis", "AWS RDS"],
+        tags: ["React Native", "Java Spring Boot", "PostgreSQL", "MyBatis", "HitPay Integration", "Redis", "AWS RDS"],
         impact: [
             "Improved API response time by 60% after migration.",
             "Seamlessly integrated HitPay for secure local transactions.",
@@ -50,7 +50,7 @@ const projects = [
         title: "Namma Kutira",
         subtitle: "Community / Property Management",
         description: "A community management platform streamlining property workflows. I designed a mobile-first UI using React Native to ensure accessibility for non-technical staff, backed by complex backend logic for automated maintenance tracking and operational efficiency.",
-        tags: ["React Native", "Java Spring Boot", "PostgreSQL", "Workflow Automation"],
+        tags: ["React Native", "Java Spring Boot", "PostgreSQL"],
         impact: [
             "Digitized core property operations, reducing manual paperwork by 70%.",
             "Designed a mobile-focused UX for non-technical staff.",
@@ -157,61 +157,122 @@ export function Projects() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6 }}
-                            className="group grid md:grid-cols-12 gap-8 md:gap-12 items-start"
+                            className="group mb-16 last:mb-0"
                         >
-                            {/* Content Side */}
-                            <div className="md:col-span-12 lg:col-span-8 flex flex-col justify-center">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <h3 className="text-2xl md:text-3xl font-bold">{project.title}</h3>
-                                    <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20">
-                                        {project.subtitle}
-                                    </span>
-                                </div>
-
-                                <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                                    {project.description}
-                                </p>
-
-                                <div className="mb-6">
-                                    <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-3">Key Impact</h4>
-                                    <ul className="space-y-2">
-                                        {project.impact.map((point, i) => (
-                                            <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
-                                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                                                {point}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                <div className="flex flex-wrap gap-2 mb-8">
-                                    {project.tags.map((tag) => (
-                                        <span
-                                            key={tag}
-                                            className="px-3 py-1 text-xs font-medium rounded-md bg-secondary text-secondary-foreground border border-border"
-                                        >
-                                            {tag}
+                            {/* Desktop Layout */}
+                            <div className="hidden md:grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+                                {/* Content Side */}
+                                <div className="md:col-span-12 lg:col-span-8 flex flex-col justify-center">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <h3 className="text-2xl md:text-3xl font-bold">{project.title}</h3>
+                                        <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20">
+                                            {project.subtitle}
                                         </span>
-                                    ))}
+                                    </div>
+
+                                    <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
+                                        {project.description}
+                                    </p>
+
+                                    <div className="mb-6">
+                                        <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-3">Key Impact</h4>
+                                        <ul className="space-y-2">
+                                            {project.impact.map((point, i) => (
+                                                <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                                                    {point}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div className="flex flex-wrap gap-2 mb-8">
+                                        {project.tags.map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className="px-3 py-1 text-xs font-medium rounded-md bg-secondary text-secondary-foreground border border-border"
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <div className="flex items-center gap-4">
+                                        <Button variant="outline" size="sm" className="gap-2" asChild>
+                                            <Link href={project.github} target="_blank">
+                                                <Github className="w-4 h-4" /> Code (Private)
+                                            </Link>
+                                        </Button>
+                                        <Button size="sm" className="gap-2" asChild>
+                                            <Link href={project.link} target="_blank">
+                                                Visit Site <ArrowUpRight className="w-4 h-4" />
+                                            </Link>
+                                        </Button>
+                                    </div>
                                 </div>
 
-                                <div className="flex items-center gap-4">
-                                    <Button variant="outline" size="sm" className="gap-2" asChild>
-                                        <Link href={project.github} target="_blank">
-                                            <Github className="w-4 h-4" /> Code (Private)
-                                        </Link>
-                                    </Button>
-                                    <Button size="sm" className="gap-2" asChild>
-                                        <Link href={project.link} target="_blank">
-                                            Visit Site <ArrowUpRight className="w-4 h-4" />
-                                        </Link>
-                                    </Button>
+                                {/* Visual Side (Carousel) */}
+                                <div className="hidden lg:flex lg:col-span-4 h-full min-h-[400px] rounded-2xl bg-card border border-border p-2 overflow-hidden items-center justify-center relative group/carousel">
+                                    <Carousel images={project.images} />
                                 </div>
                             </div>
 
-                            {/* Visual Side (Carousel) */}
-                            <div className="hidden lg:flex lg:col-span-4 h-full min-h-[400px] rounded-2xl bg-card border border-border p-2 overflow-hidden items-center justify-center relative group/carousel">
-                                <Carousel images={project.images} />
+                            {/* Mobile Layout */}
+                            <div className="flex flex-col gap-6 md:hidden">
+                                <h3 className="text-2xl font-bold">{project.title}</h3>
+
+                                {/* Card containing Carousel + Subtitle + Tags */}
+                                <div className="rounded-2xl bg-card border border-border overflow-hidden shadow-sm">
+                                    <div className="h-[250px] relative w-full bg-secondary/50">
+                                        <Carousel images={project.images} />
+                                    </div>
+                                    <div className="p-4 flex flex-col gap-3 border-t border-border">
+                                        <span className="self-start px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20">
+                                            {project.subtitle}
+                                        </span>
+                                        <div className="flex flex-wrap gap-2">
+                                            {project.tags.map((tag) => (
+                                                <span
+                                                    key={tag}
+                                                    className="px-2.5 py-1 text-[10px] font-medium rounded-md bg-secondary text-secondary-foreground border border-border"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-4 px-1">
+                                    <p className="text-muted-foreground leading-relaxed">
+                                        {project.description}
+                                    </p>
+
+                                    <div className="bg-secondary/10 rounded-xl p-4 border border-border/50">
+                                        <h4 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2">Key Impact</h4>
+                                        <ul className="space-y-2">
+                                            {project.impact.map((point, i) => (
+                                                <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                                                    {point}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div className="flex items-center gap-3 pt-2">
+                                        <Button variant="outline" size="sm" className="gap-2 flex-1" asChild>
+                                            <Link href={project.github} target="_blank">
+                                                <Github className="w-4 h-4" /> Code
+                                            </Link>
+                                        </Button>
+                                        <Button size="sm" className="gap-2 flex-1" asChild>
+                                            <Link href={project.link} target="_blank">
+                                                Visit Site <ArrowUpRight className="w-4 h-4" />
+                                            </Link>
+                                        </Button>
+                                    </div>
+                                </div>
                             </div>
                         </motion.div>
                     ))}
